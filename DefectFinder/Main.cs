@@ -1,50 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+using System.Configuration;
 using System.Windows.Forms;
 using DefectFinder.DAL;
-using DefectFinder.Model;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace DefectFinder
 {
     public partial class MainForm : Form
     {
+        // Private variables
+        private TfsHttpClient _tfsHttpClient;
+
+        // Properties
+        public TfsHttpClient TfsHttpClient
+        {
+            get
+            {
+                if (_tfsHttpClient == null)
+                {
+                    _tfsHttpClient = new TfsHttpClient(ConfigurationManager.AppSettings[Constants.AppConfig.TfsServer],
+                                                       ConfigurationManager.AppSettings[Constants.AppConfig.UsernameKey],
+                                                       ConfigurationManager.AppSettings[Constants.AppConfig.PasswordKey],
+                                                       ConfigurationManager.AppSettings[Constants.AppConfig.WebApiVersion]);
+
+                    return _tfsHttpClient;
+                }
+
+                return _tfsHttpClient;
+            }
+        }
+
+        // Public methods
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void button_SendRequest_Click(object sender, EventArgs e)
-        {
-            GetProjects();
-        }
-
-        public async void GetProjects()
+        /*
+         * Private Methods
+         */
+        private async void button_SendRequest_Click(object sender, EventArgs e)
         {
             try
             {
-                using (TfsHttpClient tfsClient = new TfsHttpClient("https://lewicki.VisualStudio.com/DefaultCollection/", textBox_Username.Text, textBox_Password.Text))
+                var projects = await TfsHttpClient.GetProjects();
+                foreach (var project in projects)
                 {
-                    using (HttpResponseMessage response = tfsClient.GetAsync("_apis/projects?api-version=2.0").Result)
-                    {
-                        response.EnsureSuccessStatusCode();
-                        string responseBody = await response.Content.ReadAsStringAsync();
-
-                        textBox_Console.Text = responseBody;
-
-                        JObject test = JObject.Parse(responseBody);
-                        IList<JToken> values = test["value"].Children().ToList();
-
-                        List<Project> projects = values.Select(value => JsonConvert.DeserializeObject<Project>(value.ToString())).ToList();
-                    }
+                    textBox_Console.Text += project + Environment.NewLine;
                 }
             }
             catch (Exception ex)
             {
-                textBox_Console.Text = ex.ToString();
+                textBox_Console.Text = ex.Message;
             }
         }
     }
