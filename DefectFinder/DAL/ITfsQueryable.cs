@@ -6,7 +6,10 @@ namespace DefectFinder.DAL
 {
     internal interface ITfsQueryable
     {
-        Task<List<Project>> GetProjects(string stateFilter, int top, int skip);
         Task<Project> GetProject(string id);
+        Task<List<Project>> GetProjects(string stateFilter, int top, int skip);
+
+        Task<Changeset> GetChangeset(string id);
+        Task<List<ChangesetChange>> GetChangesetChange(string id);
     }
 }

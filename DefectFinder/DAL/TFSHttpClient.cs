@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using DefectFinder.Core;
 using DefectFinder.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -28,10 +29,9 @@ namespace DefectFinder.DAL
             HttpResponseMessage response = await GetAsync("_apis/projects?statefilter="+ stateFilter + "&$top=" + top +"&$skip="+ skip + "&api-version=" + _apiVersion);
 
             response.EnsureSuccessStatusCode();
-
             var responseBody = await response.Content.ReadAsStringAsync();
 
-            return DeserializeProjectsJsonResponse(responseBody);
+            return JsonDeserializer.DeserializeProjects(responseBody);
         }
 
         public async Task<Project> GetProject(string id)
@@ -45,13 +45,25 @@ namespace DefectFinder.DAL
             return new Project() { Name = "not implemented yet"};
         }
 
-        //Private methods
-        private List<Project> DeserializeProjectsJsonResponse(string jsonResponseBody)
+        public async Task<Changeset> GetChangeset(string id)
         {
-            JObject jsonResponsBody = JObject.Parse(jsonResponseBody);
-            IList<JToken> values = jsonResponsBody[Constants.JsonTfsNodes.Value].Children().ToList();
+            HttpResponseMessage response = await GetAsync("_apis/tfvc/changesets/" + id + "?api-version=" + _apiVersion);
 
-            return values.Select(value => JsonConvert.DeserializeObject<Project>(value.ToString())).ToList();
+            response.EnsureSuccessStatusCode();
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            return JsonDeserializer.DeserializeChangeset(responseBody);
         }
+
+        public async Task<List<ChangesetChange>> GetChangesetChange(string id)
+        {
+            HttpResponseMessage response = await GetAsync("_apis/tfvc/changesets/" + id + "/changes?api-version=" + _apiVersion);
+
+            response.EnsureSuccessStatusCode();
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            return JsonDeserializer.DeserializeChangesetChange(responseBody);
+        }
+
     }
 }

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Core\JsonDeserializer.cs" />
     <Compile Include="DAL\ITfsQueryable.cs" />
     <Compile Include="DAL\TfsHttpClient.cs" />
     <Compile Include="Main.cs">
@@ -60,6 +61,8 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Changeset.cs" />
+    <Compile Include="Model\ChangesetChange.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
