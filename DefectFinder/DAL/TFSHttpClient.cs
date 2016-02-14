@@ -23,9 +23,9 @@ namespace DefectFinder.DAL
             _apiVersion = apiVersion;
         }
 
-        public async Task<List<Project>> GetProjects(int top = 100, int skip = 0)
+        public async Task<List<Project>> GetProjects(string stateFilter, int top = 100, int skip = 0)
         {
-            HttpResponseMessage response = await GetAsync("_apis/projects?statefilterall&$top="+ top +"&$skip="+ skip + "&api-version=" + _apiVersion);
+            HttpResponseMessage response = await GetAsync("_apis/projects?statefilter="+ stateFilter + "&$top=" + top +"&$skip="+ skip + "&api-version=" + _apiVersion);
 
             response.EnsureSuccessStatusCode();
 

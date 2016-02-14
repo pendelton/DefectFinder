@@ -15,13 +15,13 @@
             public static string WebApiVersion = "webApiVersion";
         }
 
-        public enum StateFilter
+        public class StateFilter
         {
-            WellFormed,
-            CreatePending,
-            Deleting,
-            New,
-            All
+            public static string WellFormed = "WellFormed";
+            public static string CreatePending = "CreatePending";
+            public static string Deleting = "Deleting";
+            public static string New = "New";
+            public static string All = "All";
         }
     }
 }

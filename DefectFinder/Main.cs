@@ -42,7 +42,7 @@ namespace DefectFinder
         {
             try
             {
-                var projects = await TfsHttpClient.GetProjects();
+                var projects = await TfsHttpClient.GetProjects(Constants.StateFilter.All);
                 foreach (var project in projects)
                 {
                     textBox_Console.Text += project + Environment.NewLine;
