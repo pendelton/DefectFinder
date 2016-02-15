@@ -1,0 +1,27 @@
+﻿{
+  "count": 3,
+  "value": [
+    {
+      "id": "83967238-4294-4e44-9545-18271dc9fd34",
+      "name": "GuestPlan",
+      "url": "https://unittest.visualstudio.com/DefaultCollection/_apis/projects/83967238-4294-4e44-9545-18271dc9fd34",
+      "state": "wellFormed",
+      "revision": 438314063
+    },
+    {
+      "id": "4d8f973c-a71b-459f-9385-301a4b4e125b",
+      "name": "LoD",
+      "description": "List of Dreams",
+      "url": "https://unittest.visualstudio.com/DefaultCollection/_apis/projects/4d8f973c-a71b-459f-9385-301a4b4e125b",
+      "state": "wellFormed",
+      "revision": 438314071
+    },
+    {
+      "id": "3d969021-4be2-4ad3-867e-715b7a9f68c0",
+      "name": "ProjectCRS",
+      "url": "https://unittest.visualstudio.com/DefaultCollection/_apis/projects/3d969021-4be2-4ad3-867e-715b7a9f68c0",
+      "state": "wellFormed",
+      "revision": 438314064
+    }
+  ]
+}

@@ -12,18 +12,25 @@ namespace DefectFinder.Core
     {
         public static List<Project> DeserializeProjects(string response)
         {
-            JObject jsonRespons = JObject.Parse(response);
-            IList<JToken> values = jsonRespons[Constants.JsonTfsNodes.Value].Children().ToList();
+            List<Project> projectsLst = null; 
 
-            return values.Select(value => JsonConvert.DeserializeObject<Project>(value.ToString())).ToList();
+            if (!String.IsNullOrEmpty(response))
+            {
+                JObject jsonRespons = JObject.Parse(response);
+                IList<JToken> values = jsonRespons[Constants.JsonTfsNodes.Value].Children().ToList();
+
+                projectsLst = values.Select(value => JsonConvert.DeserializeObject<Project>(value.ToString())).ToList();
+            }
+
+            return projectsLst;
         }
 
-        internal static Changeset DeserializeChangeset(string responseBody)
+        internal static Changeset DeserializeChangeset(string response)
         {
             throw new NotImplementedException();
         }
 
-        internal static List<ChangesetChange> DeserializeChangesetChange(string responseBody)
+        internal static List<ChangesetChange> DeserializeChangesetChange(string response)
         {
             throw new NotImplementedException();
         }

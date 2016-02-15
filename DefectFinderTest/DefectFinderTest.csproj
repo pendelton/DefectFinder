@@ -54,14 +54,25 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Helpers\TfsWebApi.cs" />
+    <Compile Include="JsonDeserializerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="JsonResponseTestData\emptyResponse.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="JsonResponseTestData\projects.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="JsonResponseTestData\" />
+    <ProjectReference Include="..\DefectFinder\DefectFinder.csproj">
+      <Project>{1a646a1f-2000-4ed9-ac7d-1a9f02810ab0}</Project>
+      <Name>DefectFinder</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
