@@ -62,6 +62,7 @@
     <None Include="JsonResponseTestData\emptyResponse.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="JsonResponseTestData\project.json" />
     <None Include="JsonResponseTestData\projects.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

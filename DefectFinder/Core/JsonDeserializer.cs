@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using DefectFinder.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -25,12 +24,17 @@ namespace DefectFinder.Core
             return projectsLst;
         }
 
-        internal static Changeset DeserializeChangeset(string response)
+        public static Project DeserializeProject(string response)
         {
             throw new NotImplementedException();
         }
 
-        internal static List<ChangesetChange> DeserializeChangesetChange(string response)
+        public static Changeset DeserializeChangeset(string response)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static List<ChangesetChange> DeserializeChangesetChange(string response)
         {
             throw new NotImplementedException();
         }

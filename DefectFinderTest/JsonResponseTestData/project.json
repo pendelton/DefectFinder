@@ -1,0 +1,16 @@
+﻿{
+  "id": "83967238-4294-4e44-9545-18271dc9fd34",
+  "name": "GuestPlan",
+  "url": "https://lewicki.visualstudio.com/DefaultCollection/_apis/projects/83967238-4294-4e44-9545-18271dc9fd34",
+  "state": "wellFormed",
+  "_links": {
+    "self": { "href": "https://lewicki.visualstudio.com/DefaultCollection/_apis/projects/83967238-4294-4e44-9545-18271dc9fd34" },
+    "collection": { "href": "https://lewicki.visualstudio.com/_apis/projectCollections/50a90634-f2bd-49ff-b74d-06ba2d69d0f2" },
+    "web": { "href": "https://lewicki.visualstudio.com/DefaultCollection/GuestPlan" }
+  },
+  "defaultTeam": {
+    "id": "57f26248-b093-4e4d-be0d-feffd131639b",
+    "name": "GuestPlan Team",
+    "url": "https://lewicki.visualstudio.com/DefaultCollection/_apis/projects/83967238-4294-4e44-9545-18271dc9fd34/teams/57f26248-b093-4e4d-be0d-feffd131639b"
+  }
+}

@@ -15,7 +15,7 @@ namespace DefectFinderTest
 
             //Act
             var projectLst = JsonDeserializer.DeserializeProjects(response);
-            
+
             //Assert
             Assert.AreEqual(3, projectLst.Count);
         }

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using DefectFinder.Core;
 using DefectFinder.Model;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace DefectFinder.DAL
 {
@@ -39,10 +36,9 @@ namespace DefectFinder.DAL
             HttpResponseMessage response = await GetAsync("_apis/projects/"+ id + "?api-version=" + _apiVersion);
 
             response.EnsureSuccessStatusCode();
-
             var responseBody = await response.Content.ReadAsStringAsync();
 
-            return new Project() { Name = "not implemented yet"};
+            return JsonDeserializer.DeserializeProject(responseBody);
         }
 
         public async Task<Changeset> GetChangeset(string id)
