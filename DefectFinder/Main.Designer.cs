@@ -28,268 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox_Console = new System.Windows.Forms.TextBox();
-            this.label_Console = new System.Windows.Forms.Label();
-            this.button_SendRequest = new System.Windows.Forms.Button();
-            this.comboBox_RequestType = new System.Windows.Forms.ComboBox();
-            this.label_comboBoxRequestType = new System.Windows.Forms.Label();
-            this.label_comboBoxMetricType = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox_Criteria = new System.Windows.Forms.GroupBox();
-            this.comboBox_ProjectState = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button_clearConsole = new System.Windows.Forms.Button();
-            this.label_ProjectState = new System.Windows.Forms.Label();
-            this.textBox_Top = new System.Windows.Forms.TextBox();
-            this.label_Top = new System.Windows.Forms.Label();
-            this.textBox_Skip = new System.Windows.Forms.TextBox();
-            this.label_Skip = new System.Windows.Forms.Label();
-            this.label_Id = new System.Windows.Forms.Label();
-            this.textBox_Id = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.consoleView = new DefectFinder.ConsoleView();
+            this.tfsRequestPanel1 = new DefectFinder.Views.TfsRequestPanel();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox_Criteria.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox_Console
-            // 
-            this.textBox_Console.Location = new System.Drawing.Point(12, 318);
-            this.textBox_Console.Multiline = true;
-            this.textBox_Console.Name = "textBox_Console";
-            this.textBox_Console.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_Console.Size = new System.Drawing.Size(845, 259);
-            this.textBox_Console.TabIndex = 0;
-            // 
-            // label_Console
-            // 
-            this.label_Console.AutoSize = true;
-            this.label_Console.Location = new System.Drawing.Point(12, 297);
-            this.label_Console.Name = "label_Console";
-            this.label_Console.Size = new System.Drawing.Size(48, 13);
-            this.label_Console.TabIndex = 1;
-            this.label_Console.Text = "Console:";
-            // 
-            // button_SendRequest
-            // 
-            this.button_SendRequest.Location = new System.Drawing.Point(766, 262);
-            this.button_SendRequest.Name = "button_SendRequest";
-            this.button_SendRequest.Size = new System.Drawing.Size(91, 23);
-            this.button_SendRequest.TabIndex = 2;
-            this.button_SendRequest.Text = "SendRequest";
-            this.button_SendRequest.UseVisualStyleBackColor = true;
-            this.button_SendRequest.Click += new System.EventHandler(this.button_SendRequest_Click);
-            // 
-            // comboBox_RequestType
-            // 
-            this.comboBox_RequestType.FormattingEnabled = true;
-            this.comboBox_RequestType.Items.AddRange(new object[] {
-            "Projects",
-            "Project",
-            "Changesets",
-            "Changeset"});
-            this.comboBox_RequestType.Location = new System.Drawing.Point(87, 9);
-            this.comboBox_RequestType.Name = "comboBox_RequestType";
-            this.comboBox_RequestType.Size = new System.Drawing.Size(147, 21);
-            this.comboBox_RequestType.TabIndex = 3;
-            this.comboBox_RequestType.SelectedValueChanged += new System.EventHandler(this.comboBox_RequestType_SelectedValueChanged);
-            // 
-            // label_comboBoxRequestType
-            // 
-            this.label_comboBoxRequestType.AutoSize = true;
-            this.label_comboBoxRequestType.Location = new System.Drawing.Point(6, 12);
-            this.label_comboBoxRequestType.Name = "label_comboBoxRequestType";
-            this.label_comboBoxRequestType.Size = new System.Drawing.Size(73, 13);
-            this.label_comboBoxRequestType.TabIndex = 4;
-            this.label_comboBoxRequestType.Text = "Request type:";
-            // 
-            // label_comboBoxMetricType
-            // 
-            this.label_comboBoxMetricType.AutoSize = true;
-            this.label_comboBoxMetricType.Location = new System.Drawing.Point(6, 13);
-            this.label_comboBoxMetricType.Name = "label_comboBoxMetricType";
-            this.label_comboBoxMetricType.Size = new System.Drawing.Size(62, 13);
-            this.label_comboBoxMetricType.TabIndex = 5;
-            this.label_comboBoxMetricType.Text = "Metric type:";
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Location = new System.Drawing.Point(0, 28);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(845, 248);
+            this.tabControl.Size = new System.Drawing.Size(869, 269);
             this.tabControl.TabIndex = 6;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox_Criteria);
-            this.tabPage1.Controls.Add(this.label_comboBoxRequestType);
-            this.tabPage1.Controls.Add(this.comboBox_RequestType);
+            this.tabPage1.Controls.Add(this.tfsRequestPanel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(837, 222);
+            this.tabPage1.Size = new System.Drawing.Size(861, 243);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TFS Requests";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // groupBox_Criteria
-            // 
-            this.groupBox_Criteria.Controls.Add(this.textBox_Id);
-            this.groupBox_Criteria.Controls.Add(this.label_Id);
-            this.groupBox_Criteria.Controls.Add(this.label_Skip);
-            this.groupBox_Criteria.Controls.Add(this.textBox_Skip);
-            this.groupBox_Criteria.Controls.Add(this.label_Top);
-            this.groupBox_Criteria.Controls.Add(this.textBox_Top);
-            this.groupBox_Criteria.Controls.Add(this.label_ProjectState);
-            this.groupBox_Criteria.Controls.Add(this.comboBox_ProjectState);
-            this.groupBox_Criteria.Location = new System.Drawing.Point(9, 36);
-            this.groupBox_Criteria.Name = "groupBox_Criteria";
-            this.groupBox_Criteria.Size = new System.Drawing.Size(822, 180);
-            this.groupBox_Criteria.TabIndex = 6;
-            this.groupBox_Criteria.TabStop = false;
-            this.groupBox_Criteria.Text = "Criteria";
-            // 
-            // comboBox_ProjectState
-            // 
-            this.comboBox_ProjectState.FormattingEnabled = true;
-            this.comboBox_ProjectState.Items.AddRange(new object[] {
-            "WellFormed",
-            "CreatePending",
-            "Deleting",
-            "New",
-            "All"});
-            this.comboBox_ProjectState.Location = new System.Drawing.Point(78, 13);
-            this.comboBox_ProjectState.Name = "comboBox_ProjectState";
-            this.comboBox_ProjectState.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_ProjectState.TabIndex = 5;
-            // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label_comboBoxMetricType);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(837, 222);
+            this.tabPage2.Size = new System.Drawing.Size(861, 206);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Metrics";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button_clearConsole
+            // toolStrip1
             // 
-            this.button_clearConsole.Location = new System.Drawing.Point(782, 583);
-            this.button_clearConsole.Name = "button_clearConsole";
-            this.button_clearConsole.Size = new System.Drawing.Size(75, 23);
-            this.button_clearConsole.TabIndex = 7;
-            this.button_clearConsole.Text = "Clear";
-            this.button_clearConsole.UseVisualStyleBackColor = true;
-            this.button_clearConsole.Click += new System.EventHandler(this.button_clearConsole_Click);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripButton5});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(869, 25);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // label_ProjectState
+            // toolStripButton1
             // 
-            this.label_ProjectState.AutoSize = true;
-            this.label_ProjectState.Location = new System.Drawing.Point(6, 16);
-            this.label_ProjectState.Name = "label_ProjectState";
-            this.label_ProjectState.Size = new System.Drawing.Size(66, 13);
-            this.label_ProjectState.TabIndex = 6;
-            this.label_ProjectState.Text = "Project state";
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // textBox_Top
+            // toolStripButton2
             // 
-            this.textBox_Top.Location = new System.Drawing.Point(78, 41);
-            this.textBox_Top.Name = "textBox_Top";
-            this.textBox_Top.Size = new System.Drawing.Size(121, 20);
-            this.textBox_Top.TabIndex = 7;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // label_Top
+            // toolStripButton3
             // 
-            this.label_Top.AutoSize = true;
-            this.label_Top.Location = new System.Drawing.Point(44, 44);
-            this.label_Top.Name = "label_Top";
-            this.label_Top.Size = new System.Drawing.Size(26, 13);
-            this.label_Top.TabIndex = 8;
-            this.label_Top.Text = "Top";
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // textBox_Skip
+            // toolStripButton4
             // 
-            this.textBox_Skip.Location = new System.Drawing.Point(78, 67);
-            this.textBox_Skip.Name = "textBox_Skip";
-            this.textBox_Skip.Size = new System.Drawing.Size(121, 20);
-            this.textBox_Skip.TabIndex = 9;
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
             // 
-            // label_Skip
+            // toolStripButton5
             // 
-            this.label_Skip.AutoSize = true;
-            this.label_Skip.Location = new System.Drawing.Point(42, 70);
-            this.label_Skip.Name = "label_Skip";
-            this.label_Skip.Size = new System.Drawing.Size(28, 13);
-            this.label_Skip.TabIndex = 10;
-            this.label_Skip.Text = "Skip";
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "toolStripButton5";
             // 
-            // label_Id
+            // consoleView
             // 
-            this.label_Id.AutoSize = true;
-            this.label_Id.Location = new System.Drawing.Point(54, 100);
-            this.label_Id.Name = "label_Id";
-            this.label_Id.Size = new System.Drawing.Size(16, 13);
-            this.label_Id.TabIndex = 11;
-            this.label_Id.Text = "Id";
+            this.consoleView.Location = new System.Drawing.Point(12, 299);
+            this.consoleView.Name = "consoleView";
+            this.consoleView.Size = new System.Drawing.Size(498, 234);
+            this.consoleView.TabIndex = 9;
             // 
-            // textBox_Id
+            // tfsRequestPanel1
             // 
-            this.textBox_Id.Location = new System.Drawing.Point(78, 97);
-            this.textBox_Id.Name = "textBox_Id";
-            this.textBox_Id.Size = new System.Drawing.Size(261, 20);
-            this.textBox_Id.TabIndex = 12;
+            this.tfsRequestPanel1.Location = new System.Drawing.Point(8, 6);
+            this.tfsRequestPanel1.Name = "tfsRequestPanel1";
+            this.tfsRequestPanel1.Size = new System.Drawing.Size(842, 220);
+            this.tfsRequestPanel1.TabIndex = 0;
+            this.tfsRequestPanel1.Load += new System.EventHandler(this.tfsRequestPanel1_Load);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 611);
-            this.Controls.Add(this.button_clearConsole);
-            this.Controls.Add(this.label_Console);
+            this.ClientSize = new System.Drawing.Size(869, 549);
+            this.Controls.Add(this.consoleView);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl);
-            this.Controls.Add(this.button_SendRequest);
-            this.Controls.Add(this.textBox_Console);
             this.Name = "MainForm";
             this.Text = "Defect finder";
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.groupBox_Criteria.ResumeLayout(false);
-            this.groupBox_Criteria.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox_Console;
-        private System.Windows.Forms.Label label_Console;
-        private System.Windows.Forms.Button button_SendRequest;
-        private System.Windows.Forms.ComboBox comboBox_RequestType;
-        private System.Windows.Forms.Label label_comboBoxRequestType;
-        private System.Windows.Forms.Label label_comboBoxMetricType;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button_clearConsole;
-        private System.Windows.Forms.ComboBox comboBox_ProjectState;
-        private System.Windows.Forms.GroupBox groupBox_Criteria;
-        private System.Windows.Forms.Label label_Skip;
-        private System.Windows.Forms.TextBox textBox_Skip;
-        private System.Windows.Forms.Label label_Top;
-        private System.Windows.Forms.TextBox textBox_Top;
-        private System.Windows.Forms.Label label_ProjectState;
-        private System.Windows.Forms.TextBox textBox_Id;
-        private System.Windows.Forms.Label label_Id;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private ConsoleView consoleView;
+        private Views.TfsRequestPanel tfsRequestPanel1;
     }
 }
 
