@@ -1,6 +1,6 @@
 ﻿namespace DefectFinder.Views
 {
-    partial class TfsRequestPanel
+    partial class TfsRequestPanelView
     {
         /// <summary> 
         /// Required designer variable.

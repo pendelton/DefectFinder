@@ -8,7 +8,7 @@ using DefectFinder.Model;
 
 namespace DefectFinder.Views
 {
-    public partial class TfsRequestPanel : UserControl, ITfsRequestPanel
+    public partial class TfsRequestPanelView : UserControl, ITfsRequestPanelView
     {
         // Private variables
         private TfsHttpClient _tfsHttpClient;
@@ -32,7 +32,7 @@ namespace DefectFinder.Views
             }
         }
 
-        public TfsRequestPanel()
+        public TfsRequestPanelView()
         {
             InitializeComponent();
 
@@ -41,6 +41,8 @@ namespace DefectFinder.Views
             textBox_Top.Enabled = false;
             comboBox_ProjectState.Enabled = false;
         }
+
+        public event EventHandler RequestTypeSelectionChanged;
 
         public async void RequestForChangesets()
         {
@@ -112,11 +114,13 @@ namespace DefectFinder.Views
         }
     }
 
-    public interface ITfsRequestPanel
+    public interface ITfsRequestPanelView
     {
         Task<Project> RequestForProject();
         Task<List<Project>> RequestForProjects();
         void RequestForChangesets();
         void RequestForChangeset();
+
+        event EventHandler RequestTypeSelectionChanged;
     }
 }

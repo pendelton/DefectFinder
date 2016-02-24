@@ -1,20 +1,32 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using DefectFinder.Views;
 
 namespace DefectFinder
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainForm
     {
+        private readonly ConsoleView _consoleView;
+        private readonly TfsRequestPanelView _tfsRequestPanelView;
+        private readonly ToolbarView _toolbarView;
+
         // Public methods
         public MainForm()
         {
             InitializeComponent();
+            _consoleView = new ConsoleView() {Dock = DockStyle.Bottom};
+            _tfsRequestPanelView = new TfsRequestPanelView() { Dock = DockStyle.Bottom };
+            _toolbarView = new ToolbarView() { Dock = DockStyle.Top };
+
+            this.Controls.Add(_toolbarView);
+            this.Controls.Add(_tfsRequestPanelView);
+            this.Controls.Add(_consoleView);
         }
 
-        private void tfsRequestPanel1_Load(object sender, EventArgs e)
-        {
-
-        }
+        public IConsoleView ConsoleView => _consoleView;
+        public ITfsRequestPanelView TfsRequestPanelView => _tfsRequestPanelView;
+        public IToolbarView ToolbarView => _toolbarView;
 
         /*
          * Private Events Methods 
@@ -58,6 +70,17 @@ namespace DefectFinder
         //    }
         //}
 
+    }
 
+    public interface IMainForm
+    {
+        event EventHandler Load;
+        event FormClosedEventHandler FormClosed;
+        
+        IConsoleView ConsoleView { get; }
+        ITfsRequestPanelView TfsRequestPanelView { get; }
+        IToolbarView ToolbarView { get; }
+
+        Color BackColor { get; set; }
     }
 }

@@ -72,11 +72,17 @@
     <Compile Include="Model\Project.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\TfsRequestPanel.cs">
+    <Compile Include="Views\TfsRequestPanelView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\TfsRequestPanel.Designer.cs">
-      <DependentUpon>TfsRequestPanel.cs</DependentUpon>
+    <Compile Include="Views\TfsRequestPanelView.Designer.cs">
+      <DependentUpon>TfsRequestPanelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToolbarView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ToolbarView.Designer.cs">
+      <DependentUpon>ToolbarView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -93,8 +99,11 @@
     <EmbeddedResource Include="Views\ConsoleView.resx">
       <DependentUpon>ConsoleView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\TfsRequestPanel.resx">
-      <DependentUpon>TfsRequestPanel.cs</DependentUpon>
+    <EmbeddedResource Include="Views\TfsRequestPanelView.resx">
+      <DependentUpon>TfsRequestPanelView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ToolbarView.resx">
+      <DependentUpon>ToolbarView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
