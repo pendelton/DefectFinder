@@ -8,7 +8,7 @@ using DefectFinder.Model;
 
 namespace DefectFinder.DAL
 {
-    public class TfsHttpClient : HttpClient, ITfsQueryable
+    public class TfsHttpClient : HttpClient, ITfsHttpClient
     {
         private readonly string _apiVersion;
 
@@ -61,5 +61,14 @@ namespace DefectFinder.DAL
             return JsonDeserializer.DeserializeChangesetChange(responseBody);
         }
 
+    }
+
+    public interface ITfsHttpClient
+    {
+        Task<Project> GetProject(string id);
+        Task<List<Project>> GetProjects(string stateFilter, int top, int skip);
+
+        Task<Changeset> GetChangeset(string id);
+        Task<List<ChangesetChange>> GetChangesetChange(string id);
     }
 }

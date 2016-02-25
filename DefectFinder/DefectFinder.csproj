@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenter\MainFormPresenter.cs" />
     <Compile Include="Views\ConsoleView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,13 +60,12 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Core\JsonDeserializer.cs" />
-    <Compile Include="DAL\ITfsQueryable.cs" />
     <Compile Include="DAL\TfsHttpClient.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="Views\MainFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Views\MainFormView.Designer.cs">
+      <DependentUpon>MainFormView.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Changeset.cs" />
     <Compile Include="Model\ChangesetChange.cs" />
@@ -84,8 +84,8 @@
     <Compile Include="Views\ToolbarView.Designer.cs">
       <DependentUpon>ToolbarView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="Views\MainFormView.resx">
+      <DependentUpon>MainFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

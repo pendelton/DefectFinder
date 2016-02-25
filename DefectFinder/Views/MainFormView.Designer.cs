@@ -1,6 +1,6 @@
 ﻿namespace DefectFinder
 {
-    partial class MainForm
+    partial class MainFormView
     {
         /// <summary>
         /// Required designer variable.

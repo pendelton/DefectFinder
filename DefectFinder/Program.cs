@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.Windows.Forms;
+using DefectFinder.DAL;
+using DefectFinder.Presenter;
 
 namespace DefectFinder
 {
@@ -16,7 +16,15 @@ namespace DefectFinder
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var mainFormView = new MainFormView();
+
+            var tfsHttpClient = new TfsHttpClient(ConfigurationManager.AppSettings[Constants.AppConfig.TfsServer],
+                        ConfigurationManager.AppSettings[Constants.AppConfig.UsernameKey],
+                        ConfigurationManager.AppSettings[Constants.AppConfig.PasswordKey],
+                        ConfigurationManager.AppSettings[Constants.AppConfig.WebApiVersion]);
+
+            var presenter = new MainFormPresenter(mainFormView, tfsHttpClient);
+            Application.Run(mainFormView);
         }
     }
 }
